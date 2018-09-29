@@ -1,0 +1,68 @@
+body {
+	margin:0 auto;
+	padding:0;
+	border:0;
+	width:815px;
+	background:#fff;
+	font-family: Verdana,Sans-serif;
+}
+
+/*--------- table ---------*/
+table {
+font-size: small;
+border-collapse: collapse;
+line-height: 90%;
+border:#fff;
+/* table-layout: fixed; */
+}
+
+th ,td {
+padding: 4px 10px;
+text-align: right;
+vertical-align: middle;
+border-bottom: solid 1px #cccccc;
+}
+
+th {
+border-bottom: solid 2px #000000;
+}
+
+td {
+	padding-top: 12px;
+}
+
+tr.result td {
+padding-top: 12px;
+border-bottom: double #cccccc;
+}
+
+th.soukan {
+  text-align: center;
+}
+
+input {
+	border: 1px solid #d8d8d8;
+	font-size: small;
+  text-align: right;
+	width: 4em;
+	padding: 0px 3px;
+	margin: 0px 2px
+}
+
+input[name="asset_name"] {
+	text-align: center;
+	width: 7em;
+}
+
+.func_elem {
+	font-size: 150%;
+  margin: auto;
+  text-align: center;
+  vertical-align: middle;
+  border-bottom:none;
+}
+.func_elem:hover{
+  background: #ffcfcf;
+}
+
+

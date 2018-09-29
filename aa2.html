@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang=ja>
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="./css/aa.css" type="text/css" />
+  <title>長期投資予想／アセットアロケーション分析 ～ 投資信託のガイド｜ファンドの海</title>
+</head>
+<body>
+
+  <h1>長期投資予想／アセットアロケーション分析</h1>
+
+  <h2>アセットアロケーション</h2>
+  <table id="asset_allocation_table">
+    <thead>
+      <tr>
+        <th>資産クラス</th> <th>投資金額</th> <th>配分比率</th> <th>期待リターン</th> <th>リスク</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="国内債券">
+        <td class="aa-asset-name">国内債券</td>
+        <td>
+          <input class="investment" value="0.00" type="text">万円
+        </td>
+        <td>
+          <input class="allocation_ratio" value="0.00" type="text">%
+        </td>
+        <td>
+          <input class="expected_return" value="1.00" type="text" tabindex="-1">%
+        </td>
+        <td>
+          <input class="risk" value="5.40" type="text" tabindex="-1">%
+        </td>
+      </tr>
+      <tr class="国内株式">
+        <td class="aa-asset-name">国内株式</td>
+        <td>
+          <input class="investment" value="0.00" type="text">万円
+        </td>
+        <td>
+          <input class="allocation_ratio" value="0.00" type="text">%
+        </td>
+        <td>
+          <input class="expected_return" value="4.80" type="text" tabindex="-1">%
+        </td>
+        <td>
+          <input class="risk" value="22.15" type="text" tabindex="-1">%
+        </td>
+      </tr>
+      <tr class="先進国債権">
+        <td class="aa-asset-name">先進国債権</td>
+        <td>
+          <input class="investment" value="0.00" type="text">万円
+        </td>
+        <td>
+          <input class="allocation_ratio" value="0.00" type="text">%
+        </td>
+        <td>
+          <input class="expected_return" value="3.50" type="text" tabindex="-1">%
+        </td>
+        <td>
+          <input class="risk" value="13.25" type="text" tabindex="-1">%
+        </td>
+      </tr>
+      <tr class="先進国株式">
+        <td class="aa-asset-name">先進国株式</td>
+        <td>
+          <input class="investment" value="0.00" type="text">万円
+        </td>
+        <td>
+          <input class="allocation_ratio" value="0.00" type="text">%
+        </td>
+        <td>
+          <input class="expected_return" value="5.00" type="text" tabindex="-1">%
+        </td>
+        <td>
+          <input class="risk" value="19.59" type="text" tabindex="-1">%
+        </td>
+      </tr>
+      <tr class="新興国株式">
+        <td class="aa-asset-name">新興国株式</td>
+        <td>
+          <input class="investment" value="0.00" type="text">万円
+        </td>
+        <td>
+          <input class="allocation_ratio" value="0.00" type="text">%
+        </td>
+        <td>
+          <input class="expected_return" value="9.50" type="text" tabindex="-1">%
+        </td>
+        <td>
+          <input class="risk" value="26.25" type="text" tabindex="-1">%
+        </td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr>
+        <td>(信託報酬など</td>
+        <td></td>
+        <td></td>
+        <td>△
+          <input id="fee" value="0.00" type="text" tabindex="-1">%
+        </td>
+        <td>)</td>
+      </tr>
+      <tr>
+        <td>計算結果</td>
+        <td>
+          <input id="total_invest" value="0.00" type="text">万円
+        </td>
+        <td>
+          <span id="total_ratio">0.00</span>%
+        </td>
+        <td>
+          <span id="total_return">0.00</span>%
+        </td>
+        <td>
+          <span id="total_risk">0.00</span>%
+        </td>
+      </tr>
+    </tfoot>
+  </table>
+
+  <h2>資産クラスと相関係数</h2>
+  <table id="correlation_table">
+    <thead>
+      <tr>
+        <th style="border-bottom:none">　</th>
+        <th class="soukan">相関係数</th>
+        <th class="国内債券">国内債券</th>
+        <th class="国内株式">国内株式</th>
+        <th class="先進国債権">先進国債権</th>
+        <th class="先進国株式">先進国株式</th>
+        <th class="新興国株式">新興国株式</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="国内債券">
+        <td style="border-bottom:none">
+          <input class="delete_asset" value="削除" type="button">
+        </td>
+        <td>
+          <span class="asset_name">国内債券</span>
+        </td>
+        <td class="国内債券">1</td>
+        <td class="国内株式">-</td>
+        <td class="先進国債権">-</td>
+        <td class="先進国株式">-</td>
+        <td class="新興国株式">-</td>
+      </tr>
+      <tr class="国内株式">
+        <td style="border-bottom:none">
+          <input class="delete_asset" value="削除" type="button">
+        </td>
+        <td>
+          <span class="asset_name">国内株式</span>
+        </td>
+        <td class="国内債券">
+          <input class="correlation_value" value="0.16" type="text">
+        </td>
+        <td class="国内株式">1</td>
+        <td class="先進国債権">-</td>
+        <td class="先進国株式">-</td>
+        <td class="新興国株式">-</td>
+      </tr>
+      <tr class="先進国債権">
+        <td style="border-bottom:none">
+          <input class="delete_asset" value="削除" type="button">
+        </td>
+        <td>
+          <span class="asset_name">先進国債権</span>
+        </td>
+        <td class="国内債券">
+          <input class="correlation_value" value="-0.06" type="text">
+        </td>
+        <td class="国内株式">
+          <input class="correlation_value" value="-0.25" type="text">
+        </td>
+        <td class="先進国債権">1</td>
+        <td class="先進国株式">-</td>
+        <td class="新興国株式">-</td>
+      </tr>
+      <tr class="先進国株式">
+        <td style="border-bottom:none">
+          <input class="delete_asset" value="削除" type="button">
+        </td>
+        <td>
+          <span class="asset_name">先進国株式</span>
+        </td>
+        <td class="国内債券">
+          <input class="correlation_value" value="-0.05" type="text">
+        </td>
+        <td class="国内株式">
+          <input class="correlation_value" value="0.27" type="text">
+        </td>
+        <td class="先進国債権">
+          <input class="correlation_value" value="0.56" type="text">
+        </td>
+        <td class="先進国株式">1</td>
+        <td class="新興国株式">-</td>
+      </tr>
+      <tr class="新興国株式">
+        <td style="border-bottom:none">
+          <input class="delete_asset" value="削除" type="button">
+        </td>
+        <td>
+          <span class="asset_name">新興国株式</span>
+        </td>
+        <td class="国内債券">
+          <input class="correlation_value" value="-0.29" type="text">
+        </td>
+        <td class="国内株式">
+          <input class="correlation_value" value="0.73" type="text">
+        </td>
+        <td class="先進国債権">
+          <input class="correlation_value" value="0.11" type="text">
+        </td>
+        <td class="先進国株式">
+          <input class="correlation_value" value="0.91" type="text">
+        </td>
+        <td class="新興国株式">1</td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr style="border-bottom:none">
+        <td style="border-bottom:none">
+          <input class="append_asset" value="追加" type="button">
+        </td>
+      </tr>
+    </tfoot>
+  </table>
+</body>
+  <script type="text/javascript" src="./js/aa.js"></script>
+</html>
+
